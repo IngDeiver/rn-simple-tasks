@@ -1,17 +1,12 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import Tasks from './TasksView';
 
-const TasksContainer = ({ navigation }) => {
+const TasksContainer = ( ) => {
 
-    const showDetail = useCallback(
-        (taskId) => {
-            navigation.navigate("Details", { taskId })
-        }
-    )
+    const data = [{ id: 1, title: "First task", date: "01/23/2020", tag: "A task tag" },
+    { id: 2, title: "Second task" }]
 
-    const data = [{ id: 1, title: "First tasks", date: "01/23/2020", tag: "A task tag" }]
-
-    return (<Tasks showDetail={showDetail} data={data}/>)
+    return (<Tasks data={data}/>)
 }
 
 export default TasksContainer

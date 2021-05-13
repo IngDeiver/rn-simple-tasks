@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Menu, NewTaskModal } from '../../components'
 import { Task } from '../../components'
 
-const TasksView = ({ showDetail, data }) => {
+const TasksView = ({ data }) => {
  
   // Component state
   const [taskSelected, setTaskSelected] = React.useState(null);
@@ -45,7 +45,7 @@ const TasksView = ({ showDetail, data }) => {
               style={styles.list} 
               showsVerticalScrollIndicator={false}
               data={data}
-              renderItem={({ item }) => <Task task={item} showDetail={showDetail} 
+              renderItem={({ item }) => <Task task={item} 
               handleMenuOpen={handleOpenMenuModal}/>} />
 
           ) : <LottieView

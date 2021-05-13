@@ -1,17 +1,23 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { Chip, Card } from 'react-native-paper'
+import { useNavigation } from '@react-navigation/native';
 
-const TaskView = ({ task, handleMenuOpen, showDetail }) => {
+const TaskView = ({ task, handleMenuOpen }) => {
+    const navigation = useNavigation();
+    const showDetail = (taskId) => {
+        navigation.navigate("Details", { taskId })
+    }
+
     return (
         <Card
             onLongPress={() => handleMenuOpen(task.id)}
             style={styles.card}
             onPress={() => showDetail(task.id)}>
             <Card.Title title={task.title} subtitle={task.date} />
-            <Card.Content style={styles.cardContent}>
+            {task.tag && <Card.Content style={styles.cardContent}>
                 <Chip>{task.tag}</Chip>
-            </Card.Content>
+            </Card.Content>}
         </Card>
     )
 }

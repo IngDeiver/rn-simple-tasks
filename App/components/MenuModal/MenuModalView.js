@@ -2,7 +2,6 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { List, Divider, useTheme, Portal, Dialog } from 'react-native-paper'
 import LottieView from 'lottie-react-native';
-import { MaterialDialog } from 'react-native-material-dialog';
 import { SafeAreaView } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 
