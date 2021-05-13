@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import Details from '../screens/Detail'
+import { Detail } from '../screens'
 import { createStackNavigator } from '@react-navigation/stack';
 import TaskTabNavigator from './TaskTabNavigator'
 import { TouchableRipple, Switch } from 'react-native-paper';
@@ -19,7 +19,7 @@ function TaskStackNavigator() {
         </TouchableRipple>
     }}>
       <TaskStack.Screen name="Tasks" component={TaskTabNavigator} />
-      <TaskStack.Screen name="Details" component={Details} />
+      <TaskStack.Screen name="Details" component={Detail} />
     </TaskStack.Navigator>
   );
 }

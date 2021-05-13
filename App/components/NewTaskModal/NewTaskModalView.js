@@ -1,11 +1,12 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Platform, View } from 'react-native'
-import { Button, Portal, TextInput, Title } from 'react-native-paper'
+import { ScrollView, StyleSheet, Platform, View} from 'react-native'
+import { Button, Portal, Title, TextInput } from 'react-native-paper'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { SafeAreaView, Dimensions } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 
-const ModalComponent = ({ theme, refRBSheet }) => {
+
+const NewTaskModalView = ({ theme, refRBSheet }) => {
     // Datepicker
     const [show, setShow] = React.useState(false);
     const onChange = (_, selectedDate) => {
@@ -45,6 +46,7 @@ const ModalComponent = ({ theme, refRBSheet }) => {
                             label="Title"
                             mode="outlined"
                         />
+                        
                         <TextInput
                             theme={theme}
                             style={styles.text}
@@ -52,13 +54,14 @@ const ModalComponent = ({ theme, refRBSheet }) => {
                             mode="outlined"
                             multiline
                         />
+                       
                         <TextInput
                             theme={theme}
                             style={styles.text}
                             label="Tag"
                             mode="outlined"
                         />
-
+                       
                         <Button icon="calendar" mode="outlined"
                             onPress={() => setShow(true)} compact
                             theme={theme}
@@ -99,7 +102,7 @@ const ModalComponent = ({ theme, refRBSheet }) => {
 
 const styles = StyleSheet.create({
     text: {
-        marginVertical: 10
+        marginVertical: 5
     },
     title: {
         textAlign: "center",
@@ -126,4 +129,4 @@ const styles = StyleSheet.create({
         height: 300
     }
 })
-export default ModalComponent
+export default NewTaskModalView

@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import Tasks from '../screens/Tasks';
+import { Tasks } from '../screens';
 
 const Tab = createMaterialBottomTabNavigator();
 
