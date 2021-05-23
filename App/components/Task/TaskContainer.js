@@ -1,10 +1,10 @@
 import React from 'react'
 import TaskView from './TaskView'
 
-const TaskContainer = ({ task, handleMenuOpen }) => {
+const TaskContainer = ({ taskId, handleMenuOpen }) => {
     return (
         <TaskView 
-        task={task}
+        taskId={taskId}
         handleMenuOpen={handleMenuOpen}
         />
     )

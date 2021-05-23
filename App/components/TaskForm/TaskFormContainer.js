@@ -1,8 +1,8 @@
 import React from 'react';
 import TaskFormView from './TaskFormView'
 
-const TaskFormContainer = () => {
-   return ( <TaskFormView/>)
+const TaskFormContainer = ({ updating = false, task}) => {
+   return ( <TaskFormView updating={updating} task={task}/>)
 }
 
-export  default TaskFormContainer
+export  default React.memo(TaskFormContainer)

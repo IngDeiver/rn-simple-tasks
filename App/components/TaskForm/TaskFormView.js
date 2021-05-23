@@ -1,14 +1,17 @@
 import React from 'react';
 import { OutlinedTextField } from 'rn-material-ui-textfield'
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { ScrollView, View, Platform, StyleSheet, Dimensions } from 'react-native'
+import { ScrollView, View, Platform, StyleSheet } from 'react-native'
 import { Button, Title, useTheme } from 'react-native-paper'
 import { useForm } from '../../hooks'
 import * as Yup from 'yup';
+import { selectState } from '../../redux/reducers/task.slice'
+import { useSelector } from 'react-redux'
 
-const TaskFormView = () => {
 
+const TaskFormView = ({ updating, task }) => {
     const theme = useTheme()
+    const state = useSelector(selectState)
     const TaskSchema = Yup.object().shape({
         title: Yup.string()
           .min(10, 'Too short! must be between 10 and 50 characters')
@@ -20,13 +23,13 @@ const TaskFormView = () => {
           .required('The description field is required'),
         tag: Yup.string()
     });
-
     const formTask = useForm({
         initialValues: {
-            title: '',
-            description: '',
-            tag: '',
-            date: ""
+            id: task ? task.id : null,
+            title: task ? task.title : '',
+            description: task ? task.description : '',
+            tag: task ? task.tag : '',
+            date: task ? new Date(task.date) : ''
         },
         validationSchema:TaskSchema
     });
@@ -45,7 +48,7 @@ const TaskFormView = () => {
             <View>
                 <Title
                     theme={theme}
-                    style={styles.title}>New task
+                    style={styles.title}> { updating ? 'Detail' : 'New task'} 
                 </Title>
             </View>
             <ScrollView
@@ -111,11 +114,13 @@ const TaskFormView = () => {
 
                 <Button
                     style={{marginBottom:200}}
-                    icon="plus"
+                    icon = { !updating ? 'plus' : 'brush'}
                     theme={theme}
                     mode="contained"
+                    loading = {state === 'saving' || state === 'updating'}
+                    disabled ={ state === 'saving' || state === 'updating'}
                     onPress={formTask.handleSubmit}>
-                    Save
+                    { updating ? 'Update' : 'Save'}
                 </Button>
             </ScrollView>
                

@@ -10,6 +10,9 @@ import { PreferencesContext } from './context'
 import { CombinedDefaultTheme, CombinedDarkTheme } from './theme'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SplashScreen from  "react-native-splash-screen";
+import { Provider } from 'react-redux'
+import store from './redux/store'
+import Toast from 'react-native-toast-message';
 
 
 const App = () => {
@@ -36,11 +39,15 @@ const App = () => {
   return (
     <PreferencesContext.Provider value={preferences}>
       <PaperProvider theme={theme}>
+        <Provider store={store}>
           <NavigationContainer theme={theme} >
-            <SafeAreaProvider>
-              <RootNavigator/>
-            </SafeAreaProvider>
-          </NavigationContainer>
+              <SafeAreaProvider>
+                <RootNavigator/>
+                <Toast ref={(ref) => Toast.setRef(ref)} />
+              </SafeAreaProvider>
+            </NavigationContainer>
+        </Provider>
+
       </PaperProvider>
     </PreferencesContext.Provider>
   )

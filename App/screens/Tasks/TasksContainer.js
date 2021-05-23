@@ -1,12 +1,18 @@
 import React from 'react';
 import Tasks from './TasksView';
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchTasks, selectTaskById} from '../../redux/reducers/task.slice'
 
-const TasksContainer = ( ) => {
+const TasksContainer = ({ route }) => {
+    const dispatch = useDispatch()
 
-    const data = [{ id: 1, title: "First task", date: "01/23/2020", tag: "A task tag" },
-    { id: 2, title: "Second task" }]
+    React.useEffect(() => {
+        dispatch(fetchTasks())
+    },[dispatch]);
 
-    return (<Tasks data={data}/>)
+    const taskIds = useSelector(selectTaskById(route.params.filterBy))
+
+    return (<Tasks data={taskIds}/>)
 }
 
 export default TasksContainer

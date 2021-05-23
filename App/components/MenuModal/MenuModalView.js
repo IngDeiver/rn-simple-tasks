@@ -4,10 +4,29 @@ import { List, Divider, useTheme, Portal, Dialog } from 'react-native-paper'
 import LottieView from 'lottie-react-native';
 import { SafeAreaView } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
-
+import { useNavigation } from '@react-navigation/native';
+import { deleteTask } from '../../redux/reducers/task.slice'
+import { useDispatch } from 'react-redux';
 
 const MenuModalView = ({ taskId, refRBSheet }) => {
   const theme = useTheme()
+  const navigation = useNavigation();
+  const dispatch = useDispatch()
+
+  const closeMenu = () => {
+    refRBSheet.current.close()
+  }
+
+  const showDetail = () => {
+      closeMenu()
+      navigation.navigate("Details", { taskId })
+  }
+
+  const deleteTaskHandle = () => {
+    dispatch(deleteTask(taskId))
+      .then(closeMenu())
+  }
+
   const [okDialogVisible, setOkDialogVisible] = React.useState(false);
 
   const showDialog = () => {
@@ -36,11 +55,13 @@ const MenuModalView = ({ taskId, refRBSheet }) => {
           <View  >
             <List.Item
               title="Delete"
+              onPress={deleteTaskHandle}
               left={props => <List.Icon {...props} icon="delete" color="red" />}
             />
             <Divider />
             <List.Item
               title="Edit"
+              onPress={showDetail}
               left={props => <List.Icon {...props} icon="brush" color="green" />}
             />
             <Divider />

@@ -27,10 +27,6 @@ function TaskTabNavigator() {
           return <Icon name={iconName} size={20} color={color} />;
         },
       })}
-      tabBarOptions={{
-        // activeTintColor: 'tomato',
-        // inactiveTintColor: 'gray',
-      }}
       >
         <Tab.Screen name="Pending" component={Tasks} initialParams={{ filterBy: "pending" }} />
         <Tab.Screen name="Done" component={Tasks} initialParams={{ filterBy: "done" }} />

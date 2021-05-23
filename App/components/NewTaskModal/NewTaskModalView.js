@@ -1,15 +1,15 @@
 import React from 'react'
-import { StyleSheet, View} from 'react-native'
-import { Portal } from 'react-native-paper'
-
+import { StyleSheet} from 'react-native'
+import { Portal, Provider} from 'react-native-paper'
 import { SafeAreaView, Dimensions } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import '../../utils/date'
 import { TaskForm } from '..'
-  
+
 const NewTaskModalView = ({ theme, refRBSheet }) => {
     return (
         <SafeAreaView>
+            <Provider>
             <Portal>
                 <RBSheet
                     openDuration={600}
@@ -26,6 +26,8 @@ const NewTaskModalView = ({ theme, refRBSheet }) => {
                     <TaskForm />
                 </RBSheet>
             </Portal>
+            </Provider>
+            
         </SafeAreaView>
 
     )
