@@ -34,6 +34,14 @@ export const updateTask = createAsyncThunk(
   }
 )
 
+export const toggleStateTask = createAsyncThunk(
+  'tasks/toggle',
+  async ( taskId , thunkAPI) => {
+    // const data = await TaskService.toggle(taskId)
+    return taskId
+  }
+)
+
 export const deleteTask = createAsyncThunk(
   'tasks/delete',
   async ( taskId , thunkAPI) => {
@@ -64,7 +72,7 @@ const taskSLice = createSlice({
     [fetchTasks.rejected]: (state, _) => {
       state.state = 'error'
       Toast.show({
-        text1: 'Get tasks',
+        text1: 'Get task',
         text2: 'Failed to get tasks',
         type: 'error'
       });
@@ -148,6 +156,37 @@ const taskSLice = createSlice({
       Toast.show({
         text1: 'Delete task',
         text2: 'Failed to delete task',
+        type: 'error'
+      });
+      return state
+    },
+
+    [toggleStateTask.pending]: (state, _) => {
+      state.state = 'updating'
+      return state
+    },
+    [toggleStateTask.fulfilled]: (state, action) => {
+      state.state = 'updated'
+
+      const task = state.data.find(tk => tk.id === action.payload)
+      if(task.state === 'pending'){
+        task.state = 'done'
+      }else{
+        task.state  = 'pending'
+      }
+
+      Toast.show({
+        text1: 'Update task',
+        text2: `Task ${task.tag === 'done' ? 'completed' : 'peding'}`
+      });
+
+      return state
+    },
+    [toggleStateTask.rejected]: (state, _) => {
+      state.state = 'error'
+      Toast.show({
+        text1: 'Update task',
+        text2: 'Failed to update task',
         type: 'error'
       });
       return state

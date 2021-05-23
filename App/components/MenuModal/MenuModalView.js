@@ -5,10 +5,10 @@ import LottieView from 'lottie-react-native';
 import { SafeAreaView } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { useNavigation } from '@react-navigation/native';
-import { deleteTask } from '../../redux/reducers/task.slice'
+import { deleteTask, toggleStateTask } from '../../redux/reducers/task.slice'
 import { useDispatch } from 'react-redux';
 
-const MenuModalView = ({ taskId, refRBSheet }) => {
+const MenuModalView = ({ task, refRBSheet }) => {
   const theme = useTheme()
   const navigation = useNavigation();
   const dispatch = useDispatch()
@@ -19,11 +19,11 @@ const MenuModalView = ({ taskId, refRBSheet }) => {
 
   const showDetail = () => {
       closeMenu()
-      navigation.navigate("Details", { taskId })
+      navigation.navigate("Details", { taskId: task.taskId })
   }
 
   const deleteTaskHandle = () => {
-    dispatch(deleteTask(taskId))
+    dispatch(deleteTask(task.taskId))
       .then(closeMenu())
   }
 
@@ -31,7 +31,10 @@ const MenuModalView = ({ taskId, refRBSheet }) => {
 
   const showDialog = () => {
     refRBSheet.current.close()
-    setOkDialogVisible(true);
+    dispatch(toggleStateTask(task.taskId))
+    .then(action => {
+      if(!action.error) setOkDialogVisible(true)
+    })
   }
 
   const hideDialog = () => setOkDialogVisible(false);
@@ -67,7 +70,7 @@ const MenuModalView = ({ taskId, refRBSheet }) => {
             <Divider />
             <List.Item
               onPress={showDialog}
-              title="Done"
+              title={ task?.state === 'pending' ? 'Completed' : 'Pending'}
               left={props => <List.Icon {...props} icon="check" color="green" />}
             />
           </View>

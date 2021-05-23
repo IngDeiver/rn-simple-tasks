@@ -31,9 +31,9 @@ const TasksView = ({ data }) => {
   const refRBSheet = React.useRef(null);
   
   const handleOpenMenuModal = useCallback(
-    (taskId) => {
+    (taskId, state) => {
       refRBSheet.current.open()
-      setTaskSelected(taskId)
+      setTaskSelected({ taskId, state })
     }
   )
   
@@ -41,7 +41,9 @@ const TasksView = ({ data }) => {
 
   React.useEffect(() => {
       if(state === "created" || state === "updated" || state === "error") {
-        if(refModalRBSheet) refModalRBSheet.current.close()
+        if(refModalRBSheet.current) {
+          refModalRBSheet.current.close()
+        }
       }
   });
   
@@ -99,7 +101,7 @@ const TasksView = ({ data }) => {
 
       <Menu
         refRBSheet={refRBSheet}
-        taskId={taskSelected}/>
+        task={taskSelected}/>
     </SafeAreaView>
   )
 }

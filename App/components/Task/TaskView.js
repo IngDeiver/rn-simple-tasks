@@ -17,7 +17,7 @@ const TaskView = ({ taskId, handleMenuOpen }) => {
 
     return (
         <Card
-            onLongPress={() => handleMenuOpen(task.id)}
+            onLongPress={() => handleMenuOpen(task.id, task.state)}
             style={styles.card}
             onPress={() => showDetail(task.id)}>
             <Card.Title title={task.title} subtitle={task.date ? new Date(task.date).yyyymmdd():""} />
