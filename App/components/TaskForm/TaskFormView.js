@@ -2,15 +2,14 @@ import React from 'react';
 import { OutlinedTextField } from 'rn-material-ui-textfield'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { ScrollView, View, Platform, StyleSheet } from 'react-native'
-import { Button, Title, useTheme } from 'react-native-paper'
+import { Button, Title } from 'react-native-paper'
 import { useForm } from '../../hooks'
 import * as Yup from 'yup';
 import { selectState } from '../../redux/reducers/task.slice'
 import { useSelector } from 'react-redux'
 
 
-const TaskFormView = ({ updating, task }) => {
-    const theme = useTheme()
+const TaskFormView = ({ updating, task, theme }) => {
     const state = useSelector(selectState)
     const TaskSchema = Yup.object().shape({
         title: Yup.string()
@@ -29,7 +28,7 @@ const TaskFormView = ({ updating, task }) => {
             title: task ? task.title : '',
             description: task ? task.description : '',
             tag: task ? task.tag : '',
-            date: task ? new Date(task.date) : ''
+            date: task?.date  ? new Date(task.date) : ''
         },
         validationSchema:TaskSchema
     });
@@ -98,7 +97,7 @@ const TaskFormView = ({ updating, task }) => {
                     theme={theme}
                     style={styles.btnDate}
                     color="blue">
-                    {formTask.values.date ? formTask.values.date.yyyymmdd() : "Date (optional)"}
+                    {formTask.values.date != '' ? formTask.values.date.yyyymmdd() : "Date (optional)"}
                 </Button>
 
                 {showDatepicker && (

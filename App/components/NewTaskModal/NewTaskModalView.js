@@ -23,7 +23,7 @@ const NewTaskModalView = ({ theme, refRBSheet }) => {
                         }
                     }}
                 >
-                    <TaskForm />
+                    <TaskForm theme={theme}/>
                 </RBSheet>
             </Portal>
             </Provider>
