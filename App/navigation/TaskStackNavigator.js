@@ -18,7 +18,7 @@ function TaskStackNavigator() {
         />
         </TouchableRipple>
     }}>
-      <TaskStack.Screen name="Tasks" component={TaskTabNavigator} />
+      <TaskStack.Screen name="Notes" component={TaskTabNavigator} />
       <TaskStack.Screen name="Details" component={Detail} />
     </TaskStack.Navigator>
   );

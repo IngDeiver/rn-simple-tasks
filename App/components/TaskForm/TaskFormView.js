@@ -47,7 +47,7 @@ const TaskFormView = ({ updating, task, theme }) => {
             <View>
                 <Title
                     theme={theme}
-                    style={styles.title}> { updating ? 'Detail' : 'New task'} 
+                    style={styles.title}> { updating ? 'Detail' : 'New note'} 
                 </Title>
             </View>
             <ScrollView

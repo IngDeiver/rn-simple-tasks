@@ -1,6 +1,6 @@
 {
-  "name": "simple-tasks",
-  "version": "0.0.1",
+  "name": "notas-rapidas",
+  "version": "1.0.o",
   "private": true,
   "author": "Deiver Guerra Carrascal",
   "description": "Simple task app for practice react native",

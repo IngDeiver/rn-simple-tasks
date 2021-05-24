@@ -77,7 +77,7 @@ const TasksView = ({ data }) => {
                 animation="fadeInDown" 
                 duration={2000}>
                     <Subheading>
-                      You don't have tasks!
+                      You don't have notes!
                     </Subheading>
                   </Animatable.Text>
           </View>

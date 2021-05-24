@@ -1,11 +1,11 @@
-<h1 align="center">Welcome to Simple Tasks 👋</h1>
+<h1 align="center">Welcome to Fast Notes App 👋</h1>
 <p>
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
 
-> Simple application for Android for the registration of quick tasks developed with react native
+> Simple application for Android for the registration of quick notes developed with react native
 
 ### ✨ [Demo](https://www.youtube.com/watch?v=luZaAcWAcfA)
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/luZaAcWAcfA/0.jpg)](http://www.youtube.com/watch?v=luZaAcWAcfA "Demo")
