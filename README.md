@@ -10,6 +10,17 @@
 ### ✨ [Demo](https://www.youtube.com/watch?v=luZaAcWAcfA)
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/luZaAcWAcfA/0.jpg)](http://www.youtube.com/watch?v=luZaAcWAcfA "Demo")
 
+# Developed with
+* React navigation v5
+* React native paper
+* Global theme with react navigation and rn paper with react context
+* Redux with redux toolkit as managament state
+* Lottie files
+* Formik 
+* Rn animatable
+* Rn toast message
+* Material icons
+
 ## Install
 
 ```sh
