@@ -8,7 +8,10 @@
 > Simple application for Android for the registration of quick notes developed with react native
 
 ### ✨ [Demo](https://www.youtube.com/watch?v=luZaAcWAcfA)
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/luZaAcWAcfA/0.jpg)](http://www.youtube.com/watch?v=luZaAcWAcfA "Demo")
+ <a href="https://play.google.com/store/apps/details?id=com.ingdeiver.notas">
+  	<img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png">
+  </a>
+<br/>
 
 # Developed with
 * React navigation v5
