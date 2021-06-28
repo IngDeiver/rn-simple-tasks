@@ -1,5 +1,7 @@
 <h1 align="center">Welcome to Fast Notes App 👋</h1>
-![Banner](https://firebasestorage.googleapis.com/v0/b/ingdeiver.appspot.com/o/portafolio%2Fimagenes%2FTodos%20-%20Banner%20portafolio.png?alt=media&token=884e900c-26d8-4e81-8790-745c6650a770)
+
+ <img alt="Banner" src="https://firebasestorage.googleapis.com/v0/b/ingdeiver.appspot.com/o/portafolio%2Fimagenes%2FTodos%20-%20Banner%20portafolio.png?alt=media&token=884e900c-26d8-4e81-8790-745c6650a770" />
+
 <p>
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
